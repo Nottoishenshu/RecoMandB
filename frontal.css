@@ -1,20 +1,48 @@
 * {
     box-sizing: border-box;
+    border-color: #386eb8;
+}
+head {
+    background: #f0f6ff;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+
 }
 
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: 'Segoe Script', 'Comic Sans MS', cursive, sans-serif;
+    font-family: sans-serif;
     font-style: italic;
     line-height: 1.6;
     color: #95578f;
     background: radial-gradient(circle at top left, #f0f6ff, #e8f1ff 35%, #ffffff 100%);
 }
+h1 {
+    text-align: center;
+    font-size: clamp(2.5rem, 3vw, 4rem);
+    font-weight: 800;
+    color: #491fddf8;
+}
+ 
+img.icon {
+    display: block;
+    margin: 20px auto;
+    width: 400px;
+    height: auto;
+    align-items: center;
+}
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+}
 
 .container {
     width: min(92%, 860px);
     margin: 40px auto;
+    align-items: center;
     padding: 28px;
     border-radius: 22px;
     box-shadow: 0 20px 45px rgba(27, 38, 71, 0.15);
@@ -23,6 +51,7 @@ body {
 .frontal-page .container {
     background: #ffffff;
     border: 2px solid #d3d7dc;
+    align-items: center;
 }
 
 .results-page {
@@ -225,3 +254,4 @@ button[type="submit"]:hover {
         grid-template-columns: 1fr;
     }
 }
+
