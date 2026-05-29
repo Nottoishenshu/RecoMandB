@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontal</title>
+    <link rel="stylesheet" href="frontal.css">
+</head>
+<body class="frontal-page">
+    <div class="container">
+    <h1>RecoMandB</h1>
+    <p>Welcome to RecoMandB!</p>
+    <p>Here you can find recommendations for various movies and books according to your preferences and interests.</p>
+    <img  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXdxZGI5NW9tdmdtZDVoeTg0YXFrNnlqYzJ0eHQxZXA3ZGJ0OTM4bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0ExgnrnACJLD2GiY/giphy.gif" alt="Movie and Book Icon" class="icon">
+
+    <form action="results.html" method="get" class="user-form">
+        <fieldset>
+            <legend>Enter your details</legend>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+            <p>Choose 2 or 3 genres you like:</p>
+            <div class="genre-options">
+                <label><input type="checkbox" name="favoriteGenre[]" value="fantasy"> Fantasy</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="science-fiction"> Science Fiction</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="mystery"> Mystery</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="romance"> Romance</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="non-fiction"> Non-fiction</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="horror"> Horror</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="comedy"> Comedy</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="thriller"> Thriller</label>
+                <label><input type="checkbox" name="favoriteGenre[]" value="historical"> Historical</label>
+            </div>
+            <button type="submit" href="results.html">Submit</button>
+
+    </fieldset>
+    </form>
+    </body>
+</html>
+        
+    

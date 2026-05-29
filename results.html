@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation Results</title>
+    <link rel="stylesheet" href="frontal.css">
+</head>
+<body class="results-page">
+    <div class="container">
+        <h1>Recommendation Results</h1>
+        <div id="results"></div>
+        <a href="frontal.html" class="back-link">Go back and change selections</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const hasName = params.has('name');
+        const hasGenres = params.has('favoriteGenre') || params.has('favoriteGenre[]');
+        const name = params.get('name') || 'Guest';
+        const selectedGenres = params.getAll('favoriteGenre').length > 0
+            ? params.getAll('favoriteGenre')
+            : params.getAll('favoriteGenre[]');
+
+        const recommendations = {
+            fantasy: {
+                movies: ['The Lord of the Rings', 'Stardust', 'Pan\'s Labyrinth'],
+                books: ['The Hobbit', 'Harry Potter and the Sorcerer\'s Stone', 'The Name of the Wind']
+            },
+            'science-fiction': {
+                movies: ['Blade Runner 2049', 'The Martian', 'Arrival'],
+                books: ['Dune', 'Neuromancer', 'Ender\'s Game']
+            },
+            mystery: {
+                movies: ['Knives Out', 'Zodiac', 'Gone Girl'],
+                books: ['The Girl with the Dragon Tattoo', 'Big Little Lies', 'In the Woods']
+            },
+            romance: {
+                movies: ['The Notebook', 'La La Land', 'Pride & Prejudice'],
+                books: ['Pride and Prejudice', 'The Fault in Our Stars', 'Me Before You']
+            },
+            'non-fiction': {
+                movies: ['The Social Network', 'A Beautiful Mind', 'Hidden Figures'],
+                books: ['Sapiens', 'Educated', 'The Immortal Life of Henrietta Lacks']
+            },
+            horror: {
+                movies: ['Get Out', 'A Quiet Place', 'The Conjuring'],
+                books: ['The Haunting of Hill House', 'Bird Box', 'The Shining']
+            },
+            comedy: {
+                movies: ['Superbad', 'The Grand Budapest Hotel', 'Groundhog Day'],
+                books: ['Good Omens', 'Bossypants', 'The Hitchhiker\'s Guide to the Galaxy']
+            },
+            thriller: {
+                movies: ['Inception', 'Se7en', 'Gone Girl'],
+                books: ['The Silent Patient', 'The Girl on the Train', 'Shutter Island']
+            },
+            historical: {
+                movies: ['The King\'s Speech', 'Hidden Figures', 'Dunkirk'],
+                books: ['The Book Thief', 'All the Light We Cannot See', 'The Help']
+            }
+        };
+
+        const resultsDiv = document.getElementById('results');
+
+        if (!hasName && !hasGenres) {
+            resultsDiv.innerHTML = '<p>Please submit your choices from the form on <a href="frontal.html">frontal.html</a>.</p>';
+        } else if (selectedGenres.length === 0) {
+            resultsDiv.innerHTML = `<p><strong>${name}</strong>, you did not choose any genres. Please go back and select 2 or 3 genres.</p>`;
+        } else {
+            const genreList = selectedGenres.map(genre => genre.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()));
+
+            let html = `<p><strong>${name}</strong>, your recommended books and movies are:</p>`;
+            html += `<p><strong>Genres:</strong> ${genreList.join(', ')}</p>`;
+            html += '<div class="recommendation-list">';
+
+            selectedGenres.forEach((genre) => {
+                const genreName = genre.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                const genreData = recommendations[genre];
+                const movies = genreData?.movies || ['No movie recommendation available yet'];
+                const books = genreData?.books || ['No book recommendation available yet'];
+
+                html += `<section class="genre-card"><h2>${genreName}</h2>`;
+                html += '<div class="genre-sections">';
+                html += '<div class="genre-subsection"><h3>Movies</h3><ul>';
+                movies.forEach(movie => {
+                    html += `<li>${movie}</li>`;
+                });
+                html += '</ul></div>';
+                html += '<div class="genre-subsection"><h3>Books</h3><ul>';
+                books.forEach(book => {
+                    html += `<li>${book}</li>`;
+                });
+                html += '</ul></div>';
+                html += '</div></section>';
+            });
+
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
