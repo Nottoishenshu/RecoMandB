@@ -26,9 +26,9 @@ This is one of my beginner coding projects while learning web development. Even 
 
 project-folder/
 │
-├── index.html
-├── style.css
-└── assets/
+├── frontal.html
+├── results.html
+└── frontal.css
 
 ## ⚙️ How It Works
 
