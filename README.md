@@ -2,7 +2,7 @@
 A simple recommendation web app built using **HTML** and **CSS** that suggests movies and books to users.
 This is one of my beginner coding projects while learning web development. Even though the project is simple, building it helped me understand how websites are structured and styled.
 
-## Features
+# Features
 
 -  Movie recommendation section
 -  Book recommendation section
@@ -21,9 +21,9 @@ The recommendations repeat in a loop because the project is still in its beginne
 
 # Purpose of the Project
 
-This project was made for learning and practicing frontend web development.
+This project was made for learning and practicing for forntend web development skills. I have yet to inprove.
 
-As someone who is still learning coding, this project is a big achievement for me and helped me gain confidence in building web applications.
+As someone who is still learning coding, this project is a big achievement for me and it helped me gain confidence in building web applications.
 
 ---
 
